@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { cx } from "@/utils";
+import Header from "@/components/header/Header";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -25,14 +26,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={cx(
-          inter.variable,
-          manrope.variable,
-          "font-mr bg-light dark:bg-dark",
-        )}
+        className={cx(inter.variable, manrope.variable, "bg-light font-mr")}
       >
+        <Header />
         {children}
       </body>
     </html>
